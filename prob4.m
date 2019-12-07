@@ -6,9 +6,11 @@ elseif ay >= 0
     error("There would be no free fall!")
 end
 
-t = 0:0.001:10000;
-
 y = [(1/2)*ay, v*sind(theta), h];
+
+t = roots(y);
+t = 0:(t(t > 0)/1000):t(t > 0);
+
 y = polyval(y, t);
 y  = y(y >= 0);
 
